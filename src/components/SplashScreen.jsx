@@ -7,14 +7,14 @@ import gsap from "gsap";
 gsap.registerPlugin(useGSAP);
 
 const greetings = [
-  "Hello",
+  "Halo",
   "你好",
   "Здравствуйте ",
   "こんにちは",
   "Ciao",
   "안녕하세요",
   "السلام عليكم",
-  "Halo",
+  "Hello",
 ];
 
 export default function SplashScreen({ onComplete }) {
@@ -27,22 +27,29 @@ export default function SplashScreen({ onComplete }) {
     () => {
       const tl = gsap.timeline();
 
-      greetings.forEach((text) => {
+      greetings.forEach((text, index) => {
+        const isLast = index === greetings.length - 1;
+
         tl.call(() => {
           greetRef.current.textContent = text;
-        })
-          .fromTo(
-            greetRef.current,
-            { opacity: 0, y: 24, filter: "blur(4px)" },
-            {
-              opacity: 1,
-              y: 0,
-              filter: "blur(0px)",
-              duration: 0.2,
-              ease: "power3.out",
-            },
-          )
-          .to(
+        }).fromTo(
+          greetRef.current,
+          {
+            opacity: 0,
+            y: 24,
+            filter: "blur(4px)",
+          },
+          {
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+            duration: 0.2,
+            ease: "power3.out",
+          },
+        );
+
+        if (!isLast) {
+          tl.to(
             greetRef.current,
             {
               opacity: 0,
@@ -53,17 +60,41 @@ export default function SplashScreen({ onComplete }) {
             },
             "+=0.07",
           );
+        }
       });
 
-      tl.set(greetRef.current, { display: "none" })
+      tl.to(
+        greetRef.current,
+        {
+          opacity: 0,
+          y: -8,
+          filter: "blur(4px)",
+          duration: 0.4,
+          ease: "power2.out",
+        },
+        "+=0.8",
+      )
+
         .fromTo(
           nameRef.current,
-          { opacity: 0, y: 32 },
-          { opacity: 1, y: 0, duration: 0.7, ease: "expo.out" },
+          {
+            opacity: 0,
+            y: 32,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            ease: "expo.out",
+          },
+          "-=0.15",
         )
+
         .fromTo(
           lineRef.current,
-          { scaleX: 0 },
+          {
+            scaleX: 0,
+          },
           {
             scaleX: 1,
             duration: 0.6,
@@ -72,13 +103,17 @@ export default function SplashScreen({ onComplete }) {
           },
           "-=0.4",
         )
-        // Splash slide up keluar
-        .to(container.current, {
-          yPercent: -100,
-          duration: 0.9,
-          ease: "expo.inOut",
-          delay: 1,
-        })
+
+        .to(
+          container.current,
+          {
+            yPercent: -100,
+            duration: 0.9,
+            ease: "expo.inOut",
+          },
+          "+=1",
+        )
+
         .then(() => onComplete());
     },
     { scope: container },
@@ -114,33 +149,30 @@ export default function SplashScreen({ onComplete }) {
       <div
         style={{
           position: "absolute",
-          textAlign: "left",
           padding: "0 2rem",
-          maxWidth: "600px",
-          width: "100%",
+          display: "inline-block",
         }}
       >
         <p
           ref={nameRef}
           style={{
-            fontSize: "clamp(1.8rem, 4vw, 3.2rem)",
-            fontWeight: 300,
+            fontSize: "clamp(2rem, 8vw, 4rem)",
+            fontWeight: 200,
             color: "#fff",
-            letterSpacing: "-0.02em",
+            letterSpacing: "-0.03em",
             opacity: 0,
             marginBottom: "1rem",
           }}
         >
           I'm Muhamad Marseal
         </p>
+
         <div
           ref={lineRef}
           style={{
             height: "1px",
             background: "rgba(255,255,255,0.3)",
             width: "100%",
-            transformOrigin: "left",
-            transform: "scaleX(0)",
           }}
         />
       </div>

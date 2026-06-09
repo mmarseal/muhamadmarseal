@@ -2,6 +2,13 @@
 
 import { useState } from 'react'
 import SplashScreen from '@/components/SplashScreen'
+import Home from '@/components/Home'
+import About from '@/components/About'
+import Projects from '@/components/Projects'
+import Education from '@/components/Education'
+import Contact from '@/components/Contact'
+
+
 
 export default function Page() {
   const [splashDone, setSplashDone] = useState(false)
@@ -9,7 +16,15 @@ export default function Page() {
   return (
     <>
       {!splashDone && <SplashScreen onComplete={() => setSplashDone(true)} />}
-      {splashDone && <div style={{ color: '#fff', padding: '2rem' }}>Home coming soon...</div>}
+      {splashDone && (
+        <>
+          <Home />
+          <About />
+          <Projects />
+          <Education />
+          <Contact />
+        </>
+      )}
     </>
   )
 }
