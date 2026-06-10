@@ -7,10 +7,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// ─────────────────────────────────────────────
-// EDIT PROJECT DATA DI SINI
-// mockup: taruh file di public/mockups/namafile.png
-// ─────────────────────────────────────────────
 const projects = [
   {
     number: "01",
@@ -20,7 +16,7 @@ const projects = [
     stack: ["React", "Vite", "Tailwind", "Supabase", "Gemini API", "PWA"],
     mockup: "/mockups/dompetin.png",
     github: "https://github.com/mmarseal/dompetin",
-    live: "https://dompetin-seven.vercel.app/", // set null kalau ga ada live url
+    live: "https://dompetin-seven.vercel.app/",
   },
   {
     number: "02",
@@ -166,7 +162,6 @@ function MockupPanel({ mockup, title }) {
             />
           </>
         ) : (
-          /* PORTRAIT — floating card style */
           <div
             style={{
               position: "relative",

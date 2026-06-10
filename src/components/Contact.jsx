@@ -72,14 +72,12 @@ export default function Contact() {
   }
 
   useGSAP(() => {
-    // Section label
     gsap.fromTo('.contact-label',
       { opacity: 0, y: 16 },
       { opacity: 1, y: 0, duration: 0.6, ease: 'expo.out',
         scrollTrigger: { trigger: sectionRef.current, start: 'top 80%' } }
     )
 
-    // Big headline — letter by letter stagger
     gsap.fromTo('.contact-word',
       { opacity: 0, y: 60, rotateX: -40 },
       {
@@ -89,14 +87,12 @@ export default function Contact() {
       }
     )
 
-    // Sub line
     gsap.fromTo('.contact-sub',
       { opacity: 0, y: 24 },
       { opacity: 1, y: 0, duration: 0.7, ease: 'expo.out', delay: 0.3,
         scrollTrigger: { trigger: '.contact-headline', start: 'top 75%' } }
     )
 
-    // Links stagger
     gsap.fromTo('.contact-link-item',
       { opacity: 0, x: -24 },
       {
@@ -105,7 +101,6 @@ export default function Contact() {
       }
     )
 
-    // Divider line expand
     gsap.fromTo('.contact-divider',
       { scaleX: 0 },
       {
@@ -114,7 +109,6 @@ export default function Contact() {
       }
     )
 
-    // Footer items
     gsap.fromTo('.footer-item',
       { opacity: 0, y: 12 },
       {
@@ -123,7 +117,6 @@ export default function Contact() {
       }
     )
 
-    // Parallax on big bg text
     gsap.to(bigTextRef.current, {
       yPercent: -18,
       ease: 'none',
@@ -144,7 +137,6 @@ export default function Contact() {
       ref={sectionRef}
       style={{ background: '#0a0a0a', position: 'relative', overflow: 'hidden', paddingBottom: 0 }}
     >
-      {/* Parallax bg word */}
       <div
         ref={bigTextRef}
         style={{
@@ -162,7 +154,6 @@ export default function Contact() {
 
       <div style={{ padding: '6rem 5rem 0', position: 'relative', zIndex: 1 }}>
 
-        {/* Section label */}
         <div className="contact-label" style={{
           display: 'flex', alignItems: 'center', gap: '1rem',
           marginBottom: '5rem', opacity: 0,
@@ -173,7 +164,6 @@ export default function Contact() {
           <div style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.08)' }} />
         </div>
 
-        {/* Big headline */}
         <div
           className="contact-headline"
           style={{
@@ -204,7 +194,6 @@ export default function Contact() {
           </h2>
         </div>
 
-        {/* Sub */}
         <p
           className="contact-sub"
           style={{
@@ -220,7 +209,6 @@ export default function Contact() {
           Whether it's a project, a question, or just saying hi — my inbox is always open.
         </p>
 
-        {/* CTA email button */}
         <button
           onClick={copyEmail}
           style={{
@@ -255,7 +243,6 @@ export default function Contact() {
           )}
         </button>
 
-        {/* Links grid */}
         <div
           className="contact-links"
           style={{

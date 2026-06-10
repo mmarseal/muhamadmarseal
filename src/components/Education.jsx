@@ -68,28 +68,24 @@ export default function Education() {
   const [activeCert, setActiveCert] = useState(null)
 
   useGSAP(() => {
-    // Section label
     gsap.fromTo('.edu-label',
       { opacity: 0, y: 16 },
       { opacity: 1, y: 0, duration: 0.6, ease: 'expo.out',
         scrollTrigger: { trigger: sectionRef.current, start: 'top 80%' } }
     )
 
-    // Left column
     gsap.fromTo('.edu-left',
       { opacity: 0, x: -40 },
       { opacity: 1, x: 0, duration: 0.9, ease: 'expo.out',
         scrollTrigger: { trigger: sectionRef.current, start: 'top 70%' } }
     )
 
-    // Right column
     gsap.fromTo('.edu-right',
       { opacity: 0, x: 40 },
       { opacity: 1, x: 0, duration: 0.9, ease: 'expo.out',
         scrollTrigger: { trigger: sectionRef.current, start: 'top 70%' } }
     )
 
-    // GPA counter
     gsap.fromTo('.gpa-number',
       { innerText: 0 },
       {
@@ -105,7 +101,6 @@ export default function Education() {
       }
     )
 
-    // Cert items stagger
     gsap.fromTo('.cert-item',
       { opacity: 0, y: 20 },
       {
@@ -114,7 +109,6 @@ export default function Education() {
       }
     )
 
-    // Timeline line draw
     gsap.fromTo('.timeline-line',
       { scaleY: 0 },
       {
@@ -130,7 +124,6 @@ export default function Education() {
       ref={sectionRef}
       style={{ padding: '6rem 5rem', background: '#0a0a0a', position: 'relative', overflow: 'hidden' }}
     >
-      {/* Faint big text background */}
       <div style={{
         position: 'absolute', top: '50%', left: '50%',
         transform: 'translate(-50%, -50%)',
@@ -143,7 +136,6 @@ export default function Education() {
         EDU
       </div>
 
-      {/* Section label */}
       <div className="edu-label" style={{
         display: 'flex', alignItems: 'center', gap: '1rem',
         marginBottom: '4rem', opacity: 0,
@@ -157,7 +149,6 @@ export default function Education() {
       {/* Main layout */}
       <div style={{ display: 'flex', gap: '4rem', alignItems: 'flex-start', flexWrap: 'wrap' }}>
 
-        {/* LEFT — timeline of all education entries */}
         <div className="edu-left" style={{ flex: '0 0 auto', width: 'clamp(300px, 50%, 520px)', opacity: 0 }}>
 
           {education.map((edu, idx) => {
@@ -187,9 +178,7 @@ export default function Education() {
                   )}
                 </div>
 
-                {/* Content */}
                 <div style={{ flex: 1, paddingBottom: isLast ? 0 : '2.5rem' }}>
-                  {/* Year badge */}
                   <div style={{
                     display: 'inline-flex', alignItems: 'center', gap: '6px',
                     fontSize: '0.72rem', letterSpacing: '0.08em',
@@ -229,7 +218,6 @@ export default function Education() {
                     {edu.location}
                   </p>
 
-                  {/* Highlights */}
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', marginBottom: '1.5rem' }}>
                     {edu.highlights.map((h, i) => (
                       <div key={i} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
@@ -245,7 +233,6 @@ export default function Education() {
                     ))}
                   </div>
 
-                  {/* Score card */}
                   <div style={{
                     display: 'inline-flex', alignItems: 'center', gap: '1.5rem',
                     background: 'rgba(255,255,255,0.04)',
@@ -300,7 +287,6 @@ export default function Education() {
           })}
         </div>
 
-        {/* RIGHT — certifications */}
         <div className="edu-right cert-list" style={{ flex: 1, minWidth: 280, opacity: 0 }}>
 
           <p style={{
@@ -358,7 +344,6 @@ export default function Education() {
                   </div>
                 </div>
 
-                {/* Arrow on hover */}
                 <span style={{
                   fontSize: '0.8rem',
                   color: 'rgba(255,255,255,0.25)',
@@ -373,7 +358,6 @@ export default function Education() {
             ))}
           </div>
 
-          {/* Bottom quote */}
           <div style={{
             marginTop: '3rem',
             paddingTop: '2rem',

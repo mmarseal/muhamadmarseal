@@ -88,7 +88,6 @@ export default function Home() {
   return (
     <div ref={container} style={{ minHeight: '100vh', background: '#0a0a0a', color: '#fff' }}>
 
-      {/* NAVBAR */}
       <nav style={{
         display: 'flex',
         alignItems: 'center',
@@ -97,7 +96,6 @@ export default function Home() {
         padding: isMobile ? '1.1rem 1.5rem' : '1.25rem 5rem',
       }}>
 
-        {/* Logo */}
         <div className="nav-logo" style={{
           fontFamily: 'monospace', fontSize: '1.05rem',
           fontWeight: 700, letterSpacing: '-0.01em',
@@ -106,7 +104,6 @@ export default function Home() {
           marsel.dev
         </div>
 
-        {/* Desktop links */}
         <div style={{ display: isMobile ? 'none' : 'flex', gap: '2.5rem' }}>
           {navLinks.map(link => (
             <a
@@ -129,8 +126,6 @@ export default function Home() {
 
         {/* Right side: avatar (desktop) + hamburger (mobile) */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-
-          {/* Avatar — desktop only */}
           <div
             className="nav-avatar"
             style={{ position: 'relative', opacity: 0 }}
@@ -190,7 +185,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Hamburger — mobile only */}
+          {/* Hamburger mobile only */}
           <button
             onClick={() => setMenuOpen(o => !o)}
             style={{
@@ -237,7 +232,6 @@ export default function Home() {
         transition: 'opacity 0.35s, transform 0.35s cubic-bezier(0.4,0,0.2,1)',
         pointerEvents: menuOpen ? 'all' : 'none',
       }}>
-        {/* Close button */}
         <button
           onClick={() => setMenuOpen(false)}
           style={{
@@ -276,7 +270,6 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Socials at bottom */}
         <div style={{ position: 'absolute', bottom: '2.5rem', left: '2rem', display: 'flex', gap: '1rem' }}>
           {socials.map(s => (
             <a key={s.label} href={s.href} target="_blank" rel="noreferrer"
@@ -290,7 +283,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* HERO */}
       <section style={{
         display: 'flex',
         flexDirection: isMobile ? 'column' : 'row',
@@ -354,7 +346,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Photo card */}
         <div className="hero-right" style={{
           flexShrink: 0,
           width: isMobile ? '100%' : 'clamp(260px, 28vw, 340px)',

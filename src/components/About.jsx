@@ -233,7 +233,6 @@ export default function About() {
             </div>
           </div>
 
-          {/* I also like */}
           <div className="bento-cell cell-like" style={{ ...cell, overflow: 'hidden', minHeight: 120, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <p style={{ ...labelStyle, marginBottom: '0.5rem' }}>I also like...</p>
             <div style={{ overflow: 'hidden', height: '4rem' }}>
