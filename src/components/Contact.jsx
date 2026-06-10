@@ -297,7 +297,7 @@ export default function Contact() {
               }}>
                 {link.icon}
               </div>
-              <div style={{ flex: 1 }}>
+              <div style={{ flex: 1, minWidth: 0 }}>
                 <p style={{
                   fontSize: '0.7rem', letterSpacing: '0.08em',
                   color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase',
@@ -307,6 +307,9 @@ export default function Contact() {
                   fontSize: '0.9rem', fontWeight: 500,
                   color: hovered === i ? '#fff' : 'rgba(255,255,255,0.7)',
                   transition: 'color 0.18s',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  whiteSpace: 'nowrap',
                 }}>{link.value}</p>
               </div>
               <span style={{
